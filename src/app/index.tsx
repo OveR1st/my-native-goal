@@ -1,13 +1,20 @@
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import {
+  Button,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native'
 
 export const App = () => {
   return (
-    <View style={styles.container}>
-      <View>
-        <TextInput placeholder="Your course goal!" />
+    <View style={styles.appContainer}>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.textInput} placeholder="Your course goal!" />
         <Button title="Add goal!" color="#841584" />
       </View>
-      <View>
+      <View style={styles.goalsContainer}>
         <Text>List of goal</Text>
       </View>
     </View>
@@ -15,7 +22,31 @@ export const App = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 50,
+  appContainer: {
+    flex: 1,
+    paddingTop: 50,
+    paddingHorizontal: 16,
+  },
+
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+
+  textInput: {
+    width: '70%',
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    padding: 8,
+    marginRight: 8,
+  },
+
+  goalsContainer: {
+    flex: 5,
   },
 })
