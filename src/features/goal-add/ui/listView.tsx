@@ -6,7 +6,7 @@ export const ListView = () => {
 
   return (
     <>
-      <GoalList />
+      <GoalList goalsList={goalsList} />
     </>
   )
 }

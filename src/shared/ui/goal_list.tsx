@@ -1,9 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 
-export const GoalList = () => {
+interface IGoalListProps {
+  goalsList: string[]
+}
+
+export const GoalList: React.FC<IGoalListProps> = ({ goalsList }) => {
   return (
     <View style={styles.goalsContainer}>
-      <Text>List of goal</Text>
+      {goalsList.map((goal, i) => {
+        return <Text key={i}>{goal}</Text>
+      })}
     </View>
   )
 }
