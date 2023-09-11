@@ -1,7 +1,8 @@
-import { StyleSheet, TextInput } from 'react-native'
+import { HTMLInputTypeAttribute } from 'react'
+import { StyleSheet, TextInput, TextInputProps } from 'react-native'
 
-export const Input = () => {
-  return <TextInput style={styles.textInput} placeholder="Your course goal!" />
+export const Input: React.FC<TextInputProps> = ({ ...props }) => {
+  return <TextInput {...props} style={styles.textInput} />
 }
 
 const styles = StyleSheet.create({

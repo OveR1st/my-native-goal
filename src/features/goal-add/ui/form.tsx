@@ -1,11 +1,35 @@
-import { StyleSheet, View } from 'react-native'
-import { AddButton, Input } from 'shared'
+import { goalsModel } from 'entities/goal'
+import { useCallback, useState } from 'react'
+import {
+  GestureResponderEvent,
+  NativeSyntheticEvent,
+  StyleSheet,
+  TextInputChangeEventData,
+  View,
+} from 'react-native'
+import { useDispatch } from 'react-redux'
+import { AddButton, Input, useAppDispatch } from 'shared'
 
 export const GoalForm = () => {
+  const dispatch = useAppDispatch()
+  const [enteredGoalText, setEnteredGoalText] = useState('')
+
+  function goalInputHandler(text: string) {
+    setEnteredGoalText(text)
+  }
+
+  function addGoalHandler() {
+    dispatch(goalsModel.actions.addGoalToList(enteredGoalText))
+  }
+
   return (
     <View style={styles.inputContainer}>
-      <Input />
-      <AddButton />
+      <Input
+        value={enteredGoalText}
+        onChangeText={goalInputHandler}
+        placeholder="Your course goal!"
+      />
+      <AddButton title="Add Goal" onPress={addGoalHandler} />
     </View>
   )
 }

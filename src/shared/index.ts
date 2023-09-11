@@ -1,2 +1,6 @@
-export * from './ui/button'
+// ./ui
 export * from './ui/input'
+export * from './ui/button'
+
+// ./lib
+export * from './lib'

@@ -1,5 +1,6 @@
-import { Button } from 'react-native'
+import React from 'react'
+import { Button, ButtonProps } from 'react-native'
 
-export const AddButton = () => {
-  return <Button title="Add Goal!" />
+export const AddButton: React.FC<ButtonProps> = ({ ...props }) => {
+  return <Button {...props} />
 }

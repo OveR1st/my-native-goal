@@ -1,18 +1,17 @@
+import { StyleSheet, View } from 'react-native'
+import { Provider } from 'react-redux'
+
+import { store } from './store'
+
 import { AddGoalScreen } from 'pages/goal-add'
-import {
-  Button,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native'
 
 export const App = () => {
   return (
-    <View style={styles.appContainer}>
-      <AddGoalScreen />
-    </View>
+    <Provider store={store}>
+      <View style={styles.appContainer}>
+        <AddGoalScreen />
+      </View>
+    </Provider>
   )
 }
 
