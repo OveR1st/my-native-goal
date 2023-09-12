@@ -8,7 +8,11 @@ export const GoalList: React.FC<IGoalListProps> = ({ goalsList }) => {
   return (
     <View style={styles.goalsContainer}>
       {goalsList.map((goal, i) => {
-        return <Text key={i}>{goal}</Text>
+        return (
+          <View style={styles.goalItem} key={i}>
+            <Text style={styles.goalText}>{goal}</Text>
+          </View>
+        )
       })}
     </View>
   )
@@ -17,5 +21,15 @@ export const GoalList: React.FC<IGoalListProps> = ({ goalsList }) => {
 const styles = StyleSheet.create({
   goalsContainer: {
     flex: 5,
+  },
+  goalItem: {
+    margin: 8,
+    padding: 8,
+    borderRadius: 6,
+    backgroundColor: '#5e0acc',
+  },
+
+  goalText: {
+    color: 'white',
   },
 })

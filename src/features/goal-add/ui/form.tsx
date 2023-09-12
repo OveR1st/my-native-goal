@@ -19,7 +19,9 @@ export const GoalForm = () => {
   }
 
   function addGoalHandler() {
-    dispatch(goalsModel.actions.addGoalToList(enteredGoalText))
+    enteredGoalText &&
+      dispatch(goalsModel.actions.addGoalToList(enteredGoalText))
+    setEnteredGoalText('')
   }
 
   return (
