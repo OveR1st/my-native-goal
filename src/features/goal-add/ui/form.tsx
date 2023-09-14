@@ -23,7 +23,7 @@ export const GoalForm = () => {
       dispatch(
         goalsModel.actions.addGoalToList({
           text: enteredGoalText,
-          key: Math.random().toString(),
+          id: Math.random().toString(),
         })
       )
     setEnteredGoalText('')

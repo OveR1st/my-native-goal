@@ -1,5 +1,6 @@
 import { IGoal } from 'entities/goal'
 import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native'
+import GoalItem from './part/goal_item'
 
 interface IGoalListProps {
   goalsList: IGoal[]
@@ -10,11 +11,8 @@ export const GoalList: React.FC<IGoalListProps> = ({ goalsList }) => {
     <View style={styles.goalsContainer}>
       <FlatList
         data={goalsList}
-        renderItem={({ item }) => (
-          <View style={styles.goalItem}>
-            <Text style={styles.goalText}>{item.text}</Text>
-          </View>
-        )}
+        renderItem={({ item }) => <GoalItem item={item} />}
+        keyExtractor={(item) => item.id}
       />
     </View>
   )
@@ -23,15 +21,5 @@ export const GoalList: React.FC<IGoalListProps> = ({ goalsList }) => {
 const styles = StyleSheet.create({
   goalsContainer: {
     flex: 5,
-  },
-  goalItem: {
-    margin: 8,
-    padding: 8,
-    borderRadius: 6,
-    backgroundColor: '#5e0acc',
-  },
-
-  goalText: {
-    color: 'white',
   },
 })

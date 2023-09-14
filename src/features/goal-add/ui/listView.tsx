@@ -1,5 +1,5 @@
 import { goalsModel } from 'entities/goal'
-import { GoalList } from 'shared/ui/goal_list'
+import { GoalList } from 'shared'
 
 export const ListView = () => {
   const goalsList = goalsModel.selectors.getGoals()

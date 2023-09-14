@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 // TYPES
 
 export interface IGoal {
-  key: string
+  id: string
   text: string
 }
 
