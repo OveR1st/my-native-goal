@@ -23,6 +23,9 @@ const goalSlice = createSlice({
     addGoalToList: (state, { payload }: PayloadAction<IGoal>) => {
       state.goals.push(payload)
     },
+    deleteGoalFromList: (state, { payload }: PayloadAction<string>) => {
+      state.goals = state.goals.filter((goal) => goal.id !== payload)
+    },
   },
 })
 
