@@ -2,6 +2,7 @@ import { goalsModel } from 'entities/goal'
 import { useCallback, useState } from 'react'
 import {
   GestureResponderEvent,
+  Modal,
   NativeSyntheticEvent,
   StyleSheet,
   TextInputChangeEventData,
@@ -10,7 +11,15 @@ import {
 import { useDispatch } from 'react-redux'
 import { AddButton, Input, useAppDispatch } from 'shared'
 
-export const GoalForm = () => {
+interface IGoalFormProps {
+  modalIsVisible: boolean
+  closeModalHandler: () => void
+}
+
+export const GoalForm: React.FC<IGoalFormProps> = ({
+  modalIsVisible,
+  closeModalHandler,
+}) => {
   const dispatch = useAppDispatch()
   const [enteredGoalText, setEnteredGoalText] = useState('')
 
@@ -27,17 +36,20 @@ export const GoalForm = () => {
         })
       )
     setEnteredGoalText('')
+    closeModalHandler()
   }
 
   return (
-    <View style={styles.inputContainer}>
-      <Input
-        value={enteredGoalText}
-        onChangeText={goalInputHandler}
-        placeholder="Your course goal!"
-      />
-      <AddButton title="Add Goal" onPress={addGoalHandler} />
-    </View>
+    <Modal visible={modalIsVisible} animationType="slide">
+      <View style={styles.inputContainer}>
+        <Input
+          value={enteredGoalText}
+          onChangeText={goalInputHandler}
+          placeholder="Your course goal!"
+        />
+        <AddButton title="Add Goal" onPress={addGoalHandler} />
+      </View>
+    </Modal>
   )
 }
 
