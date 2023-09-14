@@ -1,19 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { IGoal } from 'entities/goal'
+import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native'
 
 interface IGoalListProps {
-  goalsList: string[]
+  goalsList: IGoal[]
 }
 
 export const GoalList: React.FC<IGoalListProps> = ({ goalsList }) => {
   return (
     <View style={styles.goalsContainer}>
-      {goalsList.map((goal, i) => {
-        return (
-          <View style={styles.goalItem} key={i}>
-            <Text style={styles.goalText}>{goal}</Text>
+      <FlatList
+        data={goalsList}
+        renderItem={({ item }) => (
+          <View style={styles.goalItem}>
+            <Text style={styles.goalText}>{item.text}</Text>
           </View>
-        )
-      })}
+        )}
+      />
     </View>
   )
 }

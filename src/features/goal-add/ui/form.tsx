@@ -20,7 +20,12 @@ export const GoalForm = () => {
 
   function addGoalHandler() {
     enteredGoalText &&
-      dispatch(goalsModel.actions.addGoalToList(enteredGoalText))
+      dispatch(
+        goalsModel.actions.addGoalToList({
+          text: enteredGoalText,
+          key: Math.random().toString(),
+        })
+      )
     setEnteredGoalText('')
   }
 

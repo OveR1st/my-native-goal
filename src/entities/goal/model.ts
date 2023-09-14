@@ -2,8 +2,14 @@ import { useAppSelector } from 'shared'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 // TYPES
+
+export interface IGoal {
+  key: string
+  text: string
+}
+
 type GoalsState = {
-  goals: string[]
+  goals: IGoal[]
 }
 
 const initialState: GoalsState = {
@@ -14,7 +20,7 @@ const goalSlice = createSlice({
   name: 'goalsReducer',
   initialState,
   reducers: {
-    addGoalToList: (state, { payload }: PayloadAction<string>) => {
+    addGoalToList: (state, { payload }: PayloadAction<IGoal>) => {
       state.goals.push(payload)
     },
   },
