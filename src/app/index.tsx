@@ -4,10 +4,12 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 
 import { AddGoalScreen } from 'pages/goal-add'
+import { StatusBar } from 'expo-status-bar'
 
 export const App = () => {
   return (
     <Provider store={store}>
+      <StatusBar style="light" />
       <View style={styles.appContainer}>
         <AddGoalScreen />
       </View>

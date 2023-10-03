@@ -13,7 +13,7 @@ export const AddGoalScreen = () => {
     <>
       <AddButton
         title="Add New Goal"
-        color={'purple'}
+        color={'#a065ec'}
         onPress={() => endAddGoalHandler(true)}
       />
       {modalIsVisible && (
