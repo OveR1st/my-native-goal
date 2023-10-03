@@ -55,12 +55,17 @@ export const GoalForm: React.FC<IGoalFormProps> = ({
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <AddButton title="Add Goal" onPress={addGoalHandler} />
+            <AddButton
+              title="Add Goal"
+              onPress={addGoalHandler}
+              color={'#b180f0'}
+            />
           </View>
           <View style={styles.button}>
             <AddButton
               title="Cencel"
               onPress={() => closeModalHandler(false)}
+              color={'#f31282'}
             />
           </View>
         </View>
