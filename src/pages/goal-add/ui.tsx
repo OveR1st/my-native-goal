@@ -5,17 +5,21 @@ import { AddButton } from 'shared'
 export const AddGoalScreen = () => {
   const [modalIsVisible, setModalIsVisible] = useState(false)
 
+  function endAddGoalHandler(flag: boolean): void {
+    setModalIsVisible(flag)
+  }
+
   return (
     <>
       <AddButton
         title="Add New Goal"
         color={'purple'}
-        onPress={() => setModalIsVisible(true)}
+        onPress={() => endAddGoalHandler(true)}
       />
       {modalIsVisible && (
         <GoalForm
           modalIsVisible={modalIsVisible}
-          closeModalHandler={() => setModalIsVisible(false)}
+          closeModalHandler={endAddGoalHandler}
         />
       )}
       <ListView />

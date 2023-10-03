@@ -13,7 +13,7 @@ import { AddButton, Input, useAppDispatch } from 'shared'
 
 interface IGoalFormProps {
   modalIsVisible: boolean
-  closeModalHandler: () => void
+  closeModalHandler: (flag: boolean) => void
 }
 
 export const GoalForm: React.FC<IGoalFormProps> = ({
@@ -36,7 +36,7 @@ export const GoalForm: React.FC<IGoalFormProps> = ({
         })
       )
     setEnteredGoalText('')
-    closeModalHandler()
+    closeModalHandler(false)
   }
 
   return (
@@ -52,7 +52,10 @@ export const GoalForm: React.FC<IGoalFormProps> = ({
             <AddButton title="Add Goal" onPress={addGoalHandler} />
           </View>
           <View style={styles.button}>
-            <AddButton title="Cencel" onPress={closeModalHandler} />
+            <AddButton
+              title="Cencel"
+              onPress={() => closeModalHandler(false)}
+            />
           </View>
         </View>
       </View>
