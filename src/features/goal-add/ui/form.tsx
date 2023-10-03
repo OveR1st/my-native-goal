@@ -47,7 +47,14 @@ export const GoalForm: React.FC<IGoalFormProps> = ({
           onChangeText={goalInputHandler}
           placeholder="Your course goal!"
         />
-        <AddButton title="Add Goal" onPress={addGoalHandler} />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <AddButton title="Add Goal" onPress={addGoalHandler} />
+          </View>
+          <View style={styles.button}>
+            <AddButton title="Cencel" onPress={closeModalHandler} />
+          </View>
+        </View>
       </View>
     </Modal>
   )
@@ -56,11 +63,21 @@ export const GoalForm: React.FC<IGoalFormProps> = ({
 const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 24,
+    marginHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+  },
+
+  buttonContainer: {
+    marginTop: 16,
+    flexDirection: 'row',
+  },
+
+  button: {
+    width: 100,
+    marginHorizontal: 8,
   },
 })
