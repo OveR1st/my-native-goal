@@ -7,10 +7,8 @@ export const Input: React.FC<TextInputProps> = ({ ...props }) => {
 
 const styles = StyleSheet.create({
   textInput: {
-    width: '100%',
     borderWidth: 1,
     borderColor: '#cccccc',
     padding: 8,
-    marginRight: 8,
   },
 })

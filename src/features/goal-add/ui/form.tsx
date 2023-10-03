@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native'
 import { useDispatch } from 'react-redux'
-import { AddButton, Input, useAppDispatch } from 'shared'
+import { AddButton, ImageComponent, Input, useAppDispatch } from 'shared'
 
 interface IGoalFormProps {
   modalIsVisible: boolean
@@ -42,11 +42,17 @@ export const GoalForm: React.FC<IGoalFormProps> = ({
   return (
     <Modal visible={modalIsVisible} animationType="slide">
       <View style={styles.inputContainer}>
-        <Input
-          value={enteredGoalText}
-          onChangeText={goalInputHandler}
-          placeholder="Your course goal!"
+        <ImageComponent
+          style={styles.image}
+          source={require('../../../../assets/goal.png')}
         />
+        <View style={styles.inputWrapper}>
+          <Input
+            value={enteredGoalText}
+            onChangeText={goalInputHandler}
+            placeholder="Your course goal!"
+          />
+        </View>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
             <AddButton title="Add Goal" onPress={addGoalHandler} />
@@ -68,10 +74,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
-    marginHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    backgroundColor: '#311b6b',
+    paddingHorizontal: 20,
+  },
+
+  image: {
+    width: 100,
+    height: 100,
+    margin: 20,
+  },
+
+  inputWrapper: {
+    width: '100%',
   },
 
   buttonContainer: {
